@@ -1,0 +1,21 @@
+name: Workflow Dispatch Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      param1:
+        description: 'Parameter 1'
+        required: true
+      param2:
+        description: 'Parameter 2'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo Parameters
+        run: |
+          echo "Parameter 1: ${{ github.event.inputs.param1 }}"
+          echo "Parameter 2: ${{ github.event.inputs.param2 }}"
